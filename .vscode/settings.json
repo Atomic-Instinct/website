@@ -1,0 +1,11 @@
+{
+    "editor.minimap.enabled": false,
+    "editor.tabSize": 4,
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "'Source Code Pro'",
+    "editor.fontSize": 17,
+    "files.autoSave": "afterDelay",
+    "dart.previewFlutterUiGuides": true,
+    "workbench.editor.enablePreview": false
+}

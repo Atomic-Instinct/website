@@ -1,2 +1,3 @@
-# atomic-instinct-website
-Atomic Instinct Website
+# Atomic Instinct Website
+
+[atomicinstinct.com](https://atomicinstinct.com)
