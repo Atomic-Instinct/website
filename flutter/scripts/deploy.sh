@@ -5,7 +5,9 @@ set -e
 flutter clean
 flutter build web --web-renderer html
 
-cp buil/web/** ../public
+rm -r ../public
+mkdir ../public
+cp -r build/web/** ../public
 
 cd ..
 firebase deploy --only hosting
