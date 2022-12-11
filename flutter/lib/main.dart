@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-void main() => runApp(const AtomicInstinctWebsite());
+void main() {
+  setUrlStrategy(EmptyUrlStrategy());
+  runApp(const AtomicInstinctWebsite());
+}
 
 class AtomicInstinctWebsite extends StatelessWidget {
   const AtomicInstinctWebsite({super.key});
@@ -340,4 +344,20 @@ class _SocialMediaEntryState extends State<SocialMediaEntry> {
       ),
     );
   }
+}
+
+class EmptyUrlStrategy extends HashUrlStrategy {
+  EmptyUrlStrategy([
+    super.platformLocation,
+  ]) : _basePath = stripTrailingSlash(extractPathname(checkBaseHref(
+          platformLocation.getBaseHref(),
+        )));
+
+  final String _basePath;
+
+  @override
+  String getPath() => _basePath;
+
+  @override
+  String prepareExternalUrl(String internalUrl) => _basePath;
 }
