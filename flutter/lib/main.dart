@@ -27,9 +27,9 @@ class AtomicInstinctWebsite extends StatelessWidget {
                 ),
               ),
             ),
-            /*Container(
+            Container(
               color: const Color(0x99000000),
-            ),*/
+            ),
             SingleChildScrollView(
               child: Column(
                 children: const [
