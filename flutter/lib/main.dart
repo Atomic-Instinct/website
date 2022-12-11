@@ -16,12 +16,14 @@ class AtomicInstinctWebsite extends StatelessWidget {
       ),
       home: Scaffold(
         backgroundColor: Colors.black,
-        body: Column(
-          children: const [
-            Header(),
-            Games(),
-            Footer(),
-          ],
+        body: SingleChildScrollView(
+          child: Column(
+            children: const [
+              Header(),
+              Games(),
+              Footer(),
+            ],
+          ),
         ),
       ),
     );
@@ -33,21 +35,37 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(
-          height: 200,
-          child: Image.asset('images/logo.png'),
+        const SizedBox(height: 30),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 200,
+              child: Image.asset('images/logo.png'),
+            ),
+            const Text(
+              'Atomic\nInstinct',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'ZenDots',
+                fontSize: 70,
+              ),
+            ),
+          ],
         ),
+        const SizedBox(height: 30),
         const Text(
-          'Atomic\nInstinct',
+          'We are an indie video game studio making fun games',
+          textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.white,
-            fontFamily: 'ZenDots',
-            fontSize: 70,
+            fontSize: 20,
           ),
         ),
+        const SizedBox(height: 50),
       ],
     );
   }
@@ -58,35 +76,32 @@ class Games extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 5,
-      child: Container(
-        color: Colors.green,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GameEntry(
-              name: 'Hextrategic',
-              description:
-                  'Hextrategic is a turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
-              imagePath: 'images/hextrategic.png',
-              androidUrl:
-                  'https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com',
-              iosUrl: 'https://apps.apple.com/app/hextrategic/id6444746115',
-              onTap: _onHextrategicWebsite,
-            ),
-            GameEntry(
-              name: 'Tension Tunnel',
-              description:
-                  'Tension Tunnel is a casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. The game has simple mechanics but it requires high dexterity and precise execution from the player.',
-              imagePath: 'images/tension-tunnel.png',
-              androidUrl:
-                  'https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com',
-              iosUrl: 'https://apps.apple.com/app/tension-tunnel/id1608041401',
-              onTap: _onTensionTunnelWebsite,
-            ),
-          ],
-        ),
+    return Container(
+      color: Colors.green,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          GameEntry(
+            name: 'Hextrategic',
+            description:
+                'Hextrategic is a turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
+            imagePath: 'images/hextrategic.png',
+            androidUrl:
+                'https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com',
+            iosUrl: 'https://apps.apple.com/app/hextrategic/id6444746115',
+            onTap: _onHextrategicWebsite,
+          ),
+          GameEntry(
+            name: 'Tension Tunnel',
+            description:
+                'Tension Tunnel is a casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. The game has simple mechanics but it requires high dexterity and precise execution from the player.',
+            imagePath: 'images/tension-tunnel.png',
+            androidUrl:
+                'https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com',
+            iosUrl: 'https://apps.apple.com/app/tension-tunnel/id1608041401',
+            onTap: _onTensionTunnelWebsite,
+          ),
+        ],
       ),
     );
   }
@@ -115,28 +130,26 @@ class GameEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          left: 100,
-          right: 100,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            DescriptionEntry(
-              name: name,
-              description: description,
-              imagePath: imagePath,
-              onTap: onTap,
-            ),
-            const SizedBox(height: 30),
-            StoreButtons(
-              android: androidUrl,
-              ios: iosUrl,
-            ),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 100,
+        right: 100,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          DescriptionEntry(
+            name: name,
+            description: description,
+            imagePath: imagePath,
+            onTap: onTap,
+          ),
+          const SizedBox(height: 30),
+          StoreButtons(
+            android: androidUrl,
+            ios: iosUrl,
+          ),
+        ],
       ),
     );
   }
@@ -252,7 +265,10 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.only(
+        top: 50,
+        bottom: 30,
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
