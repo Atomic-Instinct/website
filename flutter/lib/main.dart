@@ -264,7 +264,6 @@ class StoreButtons extends StatelessWidget {
           imagePath: 'images/google_play_badge.png',
           url: android,
         ),
-        const SizedBox(width: 50),
         StoreButton(
           imagePath: 'images/app_store_badge.png',
           url: ios,
@@ -285,13 +284,16 @@ class StoreButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _onTap,
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        child: SizedBox(
-          height: 60,
-          child: Image.asset(imagePath),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: GestureDetector(
+        onTap: _onTap,
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: SizedBox(
+            height: 60,
+            child: Image.asset(imagePath),
+          ),
         ),
       ),
     );
