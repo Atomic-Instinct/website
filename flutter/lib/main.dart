@@ -193,22 +193,22 @@ class _GameEntryState extends State<GameEntry> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: MouseRegion(
-        onHover: (event) {
-          setState(() {
-            opacity = 1;
-          });
-        },
-        onExit: (event) {
-          setState(() {
-            opacity = initialOpacity;
-          });
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(
-            left: 120,
-            right: 120,
-          ),
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: 120,
+          right: 120,
+        ),
+        child: MouseRegion(
+          onHover: (event) {
+            setState(() {
+              opacity = 1;
+            });
+          },
+          onExit: (event) {
+            setState(() {
+              opacity = initialOpacity;
+            });
+          },
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
