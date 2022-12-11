@@ -81,12 +81,18 @@ class Games extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.green,
+      color: Colors.black,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           GameEntry(
-            font: 'Chicago',
+            style: const TextStyle(
+              color: Colors.white,
+              fontFamily: 'Chicago',
+              fontWeight: FontWeight.w100,
+              fontSize: 18,
+              height: 1.6,
+            ),
             name: 'Hextrategic',
             description:
                 'Hextrategic is a turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
@@ -97,7 +103,12 @@ class Games extends StatelessWidget {
             onTap: _onHextrategicWebsite,
           ),
           GameEntry(
-            font: 'Bungee',
+            style: const TextStyle(
+              color: Colors.white,
+              fontFamily: 'Bungee',
+              fontWeight: FontWeight.w900,
+              fontSize: 20,
+            ),
             name: 'Tension Tunnel',
             description:
                 'Tension Tunnel is a casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. The game has simple mechanics but it requires high dexterity and precise execution from the player.',
@@ -118,7 +129,7 @@ class Games extends StatelessWidget {
 }
 
 class GameEntry extends StatelessWidget {
-  final String font;
+  final TextStyle style;
   final String name;
   final String description;
   final String imagePath;
@@ -127,7 +138,7 @@ class GameEntry extends StatelessWidget {
   final VoidCallback onTap;
 
   const GameEntry({
-    required this.font,
+    required this.style,
     required this.name,
     required this.description,
     required this.imagePath,
@@ -148,7 +159,7 @@ class GameEntry extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             DescriptionEntry(
-              font: font,
+              style: style,
               name: name,
               description: description,
               imagePath: imagePath,
@@ -167,14 +178,14 @@ class GameEntry extends StatelessWidget {
 }
 
 class DescriptionEntry extends StatelessWidget {
-  final String font;
+  final TextStyle style;
   final String name;
   final String description;
   final String imagePath;
   final VoidCallback onTap;
 
   const DescriptionEntry({
-    required this.font,
+    required this.style,
     required this.name,
     required this.description,
     required this.imagePath,
@@ -191,11 +202,12 @@ class DescriptionEntry extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              name,
+              name.toUpperCase(),
               style: TextStyle(
                 color: Colors.white,
-                fontFamily: font,
-                fontSize: 30,
+                fontFamily: style.fontFamily,
+                fontSize: style.fontSize! * 1.5,
+                fontWeight: style.fontWeight,
               ),
             ),
             const SizedBox(height: 30),
@@ -205,13 +217,9 @@ class DescriptionEntry extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             Text(
-              description,
+              description.toUpperCase(),
               textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: font,
-                fontSize: 20,
-              ),
+              style: style,
             ),
           ],
         ),
