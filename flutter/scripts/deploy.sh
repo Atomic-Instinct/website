@@ -3,7 +3,7 @@
 set -e
 
 flutter clean
-flutter build web --web-renderer html
+flutter build web --release --web-renderer html
 
 rm -r ../public
 mkdir ../public
