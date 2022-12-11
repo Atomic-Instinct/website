@@ -72,16 +72,19 @@ class Header extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 30),
-        const Text(
-          'We are an indie video game studio making fun games',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
+        const SizedBox(height: 50),
+        const SizedBox(
+          width: 600,
+          child: Text(
+            'We are a passionate indie video game studio focused primarily on mobile platforms. We make sure to pour all our hearts in every game we make to deliver the best experience to our players.',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
           ),
         ),
-        const SizedBox(height: 50),
+        const SizedBox(height: 100),
       ],
     );
   }
@@ -368,7 +371,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 100,
+        top: 150,
         bottom: 50,
       ),
       child: Column(
