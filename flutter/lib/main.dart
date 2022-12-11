@@ -154,7 +154,7 @@ class Games extends StatelessWidget {
   void _onTensionTunnelWebsite() => launchUrl(Uri.parse('https://tensiontunnel.com'));
 }
 
-class GameEntry extends StatelessWidget {
+class GameEntry extends StatefulWidget {
   final TextStyle nameStyle;
   final TextStyle descriptionStyle;
   final String name;
@@ -176,30 +176,59 @@ class GameEntry extends StatelessWidget {
   });
 
   @override
+  State<GameEntry> createState() => _GameEntryState();
+}
+
+class _GameEntryState extends State<GameEntry> {
+  double opacity = 0;
+
+  double get initialOpacity => isMobile ? 1 : 0.65;
+
+  @override
+  void initState() {
+    super.initState();
+    opacity = initialOpacity;
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          left: 120,
-          right: 120,
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            DescriptionEntry(
-              nameStyle: nameStyle,
-              descriptionStyle: descriptionStyle,
-              name: name,
-              description: description,
-              imagePath: imagePath,
-              onTap: onTap,
-            ),
-            const SizedBox(height: 30),
-            StoreButtons(
-              android: androidUrl,
-              ios: iosUrl,
-            ),
-          ],
+      child: MouseRegion(
+        onHover: (event) {
+          setState(() {
+            opacity = 1;
+          });
+        },
+        onExit: (event) {
+          setState(() {
+            opacity = initialOpacity;
+          });
+        },
+        child: Padding(
+          padding: const EdgeInsets.only(
+            left: 120,
+            right: 120,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              DescriptionEntry(
+                opacity: opacity,
+                nameStyle: widget.nameStyle,
+                descriptionStyle: widget.descriptionStyle,
+                name: widget.name,
+                description: widget.description,
+                imagePath: widget.imagePath,
+                onTap: widget.onTap,
+              ),
+              const SizedBox(height: 30),
+              StoreButtons(
+                android: widget.androidUrl,
+                ios: widget.iosUrl,
+                opacity: opacity,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -207,6 +236,7 @@ class GameEntry extends StatelessWidget {
 }
 
 class DescriptionEntry extends StatelessWidget {
+  final double opacity;
   final TextStyle nameStyle;
   final TextStyle descriptionStyle;
   final String name;
@@ -215,6 +245,7 @@ class DescriptionEntry extends StatelessWidget {
   final VoidCallback onTap;
 
   const DescriptionEntry({
+    required this.opacity,
     required this.nameStyle,
     required this.descriptionStyle,
     required this.name,
@@ -232,20 +263,29 @@ class DescriptionEntry extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              name.toUpperCase(),
-              style: nameStyle,
+            Opacity(
+              opacity: opacity,
+              child: Text(
+                name.toUpperCase(),
+                style: nameStyle,
+              ),
             ),
             const SizedBox(height: 30),
-            SizedBox(
-              height: 250,
-              child: Image.asset(imagePath),
+            Opacity(
+              opacity: opacity,
+              child: SizedBox(
+                height: 250,
+                child: Image.asset(imagePath),
+              ),
             ),
             const SizedBox(height: 30),
-            Text(
-              description.toUpperCase(),
-              textAlign: TextAlign.center,
-              style: descriptionStyle,
+            Opacity(
+              opacity: opacity,
+              child: Text(
+                description.toUpperCase(),
+                textAlign: TextAlign.center,
+                style: descriptionStyle,
+              ),
             ),
           ],
         ),
@@ -257,10 +297,12 @@ class DescriptionEntry extends StatelessWidget {
 class StoreButtons extends StatelessWidget {
   final String android;
   final String ios;
+  final double opacity;
 
   const StoreButtons({
     required this.android,
     required this.ios,
+    required this.opacity,
   });
 
   @override
@@ -272,36 +314,28 @@ class StoreButtons extends StatelessWidget {
           StoreButton(
             imagePath: 'images/google_play_badge.png',
             url: android,
+            opacity: opacity,
           ),
         if (isIOS || isDesktop)
           StoreButton(
             imagePath: 'images/app_store_badge.png',
             url: ios,
+            opacity: opacity,
           ),
       ],
     );
   }
-
-  static final bool isAndroid = defaultTargetPlatform == TargetPlatform.android;
-
-  static final bool isIOS = defaultTargetPlatform == TargetPlatform.iOS;
-
-  static final bool isWindows = defaultTargetPlatform == TargetPlatform.windows;
-
-  static final bool isLinux = defaultTargetPlatform == TargetPlatform.linux;
-
-  static final bool isMac = defaultTargetPlatform == TargetPlatform.macOS;
-
-  static final bool isDesktop = !isAndroid && !isIOS && (isWindows || isLinux || isMac);
 }
 
 class StoreButton extends StatelessWidget {
   final String imagePath;
   final String url;
+  final double opacity;
 
   const StoreButton({
     required this.imagePath,
     required this.url,
+    required this.opacity,
   });
 
   @override
@@ -312,9 +346,12 @@ class StoreButton extends StatelessWidget {
         onTap: _onTap,
         child: MouseRegion(
           cursor: SystemMouseCursors.click,
-          child: SizedBox(
-            height: 60,
-            child: Image.asset(imagePath),
+          child: Opacity(
+            opacity: opacity,
+            child: SizedBox(
+              height: 60,
+              child: Image.asset(imagePath),
+            ),
           ),
         ),
       ),
@@ -443,3 +480,17 @@ class EmptyUrlStrategy extends HashUrlStrategy {
   @override
   String prepareExternalUrl(String internalUrl) => _basePath;
 }
+
+final bool isAndroid = defaultTargetPlatform == TargetPlatform.android;
+
+final bool isIOS = defaultTargetPlatform == TargetPlatform.iOS;
+
+final bool isWindows = defaultTargetPlatform == TargetPlatform.windows;
+
+final bool isLinux = defaultTargetPlatform == TargetPlatform.linux;
+
+final bool isMac = defaultTargetPlatform == TargetPlatform.macOS;
+
+final bool isMobile = isAndroid || isIOS;
+
+final bool isDesktop = !isAndroid && !isIOS && (isWindows || isLinux || isMac);
