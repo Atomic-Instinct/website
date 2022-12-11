@@ -93,6 +93,7 @@ class Games extends StatelessWidget {
               fontWeight: FontWeight.w100,
               fontSize: 18,
               height: 1.6,
+              letterSpacing: 1.5,
             ),
             name: 'Hextrategic',
             description:
