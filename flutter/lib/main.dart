@@ -87,7 +87,15 @@ class Games extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GameEntry(
-            style: const TextStyle(
+            nameStyle: const TextStyle(
+              color: Colors.white,
+              fontFamily: 'Chicago',
+              fontWeight: FontWeight.w100,
+              fontSize: 30,
+              height: 1.6,
+              letterSpacing: 1.5,
+            ),
+            descriptionStyle: const TextStyle(
               color: Colors.white,
               fontFamily: 'Chicago',
               fontWeight: FontWeight.w100,
@@ -105,7 +113,14 @@ class Games extends StatelessWidget {
             onTap: _onHextrategicWebsite,
           ),
           GameEntry(
-            style: const TextStyle(
+            nameStyle: const TextStyle(
+              color: Colors.white,
+              fontFamily: 'Bungee',
+              fontWeight: FontWeight.w900,
+              fontSize: 35,
+              height: 1.32,
+            ),
+            descriptionStyle: const TextStyle(
               color: Colors.white,
               fontFamily: 'Bungee',
               fontWeight: FontWeight.w900,
@@ -132,7 +147,8 @@ class Games extends StatelessWidget {
 }
 
 class GameEntry extends StatelessWidget {
-  final TextStyle style;
+  final TextStyle nameStyle;
+  final TextStyle descriptionStyle;
   final String name;
   final String description;
   final String imagePath;
@@ -141,7 +157,8 @@ class GameEntry extends StatelessWidget {
   final VoidCallback onTap;
 
   const GameEntry({
-    required this.style,
+    required this.nameStyle,
+    required this.descriptionStyle,
     required this.name,
     required this.description,
     required this.imagePath,
@@ -162,7 +179,8 @@ class GameEntry extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             DescriptionEntry(
-              style: style,
+              nameStyle: nameStyle,
+              descriptionStyle: descriptionStyle,
               name: name,
               description: description,
               imagePath: imagePath,
@@ -181,14 +199,16 @@ class GameEntry extends StatelessWidget {
 }
 
 class DescriptionEntry extends StatelessWidget {
-  final TextStyle style;
+  final TextStyle nameStyle;
+  final TextStyle descriptionStyle;
   final String name;
   final String description;
   final String imagePath;
   final VoidCallback onTap;
 
   const DescriptionEntry({
-    required this.style,
+    required this.nameStyle,
+    required this.descriptionStyle,
     required this.name,
     required this.description,
     required this.imagePath,
@@ -204,19 +224,9 @@ class DescriptionEntry extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
-              height: 30,
-              child: FittedBox(
-                child: Text(
-                  name.toUpperCase(),
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontFamily: style.fontFamily,
-                    fontSize: 100,
-                    fontWeight: style.fontWeight,
-                  ),
-                ),
-              ),
+            Text(
+              name.toUpperCase(),
+              style: nameStyle,
             ),
             const SizedBox(height: 30),
             SizedBox(
@@ -227,7 +237,7 @@ class DescriptionEntry extends StatelessWidget {
             Text(
               description.toUpperCase(),
               textAlign: TextAlign.center,
-              style: style,
+              style: descriptionStyle,
             ),
           ],
         ),
