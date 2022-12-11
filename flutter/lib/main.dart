@@ -231,7 +231,7 @@ class DescriptionEntry extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             SizedBox(
-              height: 300,
+              height: 250,
               child: Image.asset(imagePath),
             ),
             const SizedBox(height: 30),
@@ -327,22 +327,43 @@ class Footer extends StatelessWidget {
         top: 100,
         bottom: 50,
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          SocialMediaEntry(
-            path: 'images/instagram.png',
-            onTap: _onInstagram,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SocialMediaEntry(
+                path: 'images/instagram.png',
+                onTap: _onInstagram,
+              ),
+              const SizedBox(width: 50),
+              SocialMediaEntry(
+                path: 'images/twitter.png',
+                onTap: _onTwitter,
+              ),
+              const SizedBox(width: 50),
+              SocialMediaEntry(
+                path: 'images/youtube.png',
+                onTap: _onYoutube,
+              ),
+            ],
           ),
-          const SizedBox(width: 50),
-          SocialMediaEntry(
-            path: 'images/twitter.png',
-            onTap: _onTwitter,
+          const SizedBox(height: 30),
+          const SelectableText(
+            'contact@atomicinstinct.com',
+            style: TextStyle(
+              fontSize: 16,
+              color: Colors.white,
+            ),
           ),
-          const SizedBox(width: 50),
-          SocialMediaEntry(
-            path: 'images/youtube.png',
-            onTap: _onYoutube,
+          const SizedBox(height: 20),
+          const Text(
+            'Copyright © Atomic Instinct 2023',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.white,
+            ),
           ),
         ],
       ),
