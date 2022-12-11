@@ -9,7 +9,7 @@ const RESOURCES = {
 "assets/assets/images/logo.png": "e93f4ed2deb754cc8173a57acec7e13c",
 "assets/shaders/ink_sparkle.frag": "176f992aaf5bb2a57d6e75ad199eb43b",
 "assets/AssetManifest.json": "b3708c00484be8d9895f895c76ad19d1",
-"manifest.json": "b65603a25a76496852ee38fdc2cce917",
+"manifest.json": "80c0e0a8c7b2106aaaccefd4f65d9435",
 "canvaskit/canvaskit.wasm": "bf50631470eb967688cca13ee181af62",
 "canvaskit/profiling/canvaskit.wasm": "95a45378b69e77af5ed2bc72b2209b94",
 "canvaskit/profiling/canvaskit.js": "38164e5a72bdad0faa4ce740c9b8e564",
@@ -17,8 +17,8 @@ const RESOURCES = {
 "flutter.js": "f85e6fb278b0fd20c349186fb46ae36d",
 "favicon.png": "16975557e8383a67b3fd9ebd1a83d098",
 "version.json": "c889bdb0016ceb658a4ec1dad05eca6e",
-"index.html": "25d3a3c7b3e55af2540b5e9c71433d34",
-"/": "25d3a3c7b3e55af2540b5e9c71433d34"
+"index.html": "25f1ccb563a312ebc46d78176b39572f",
+"/": "25f1ccb563a312ebc46d78176b39572f"
 };
 
 // The application shell files that are downloaded before a service worker can

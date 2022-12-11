@@ -11,6 +11,7 @@ class AtomicInstinctWebsite extends StatelessWidget {
       title: 'Atomic Instinct',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'ZenDots',
       ),
       home: const Content(),
     );
@@ -24,24 +25,23 @@ class Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            SizedBox(
-              width: 300,
-              height: 300,
-              child: Image.asset('images/logo.png'),
+      body: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            width: 200,
+            height: 200,
+            child: Image.asset('images/logo.png'),
+          ),
+          const Text(
+            'Atomic\nInstinct',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 70,
             ),
-            const Text(
-              'Atomic\nInstinct',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 80,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
