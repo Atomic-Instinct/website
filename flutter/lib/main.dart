@@ -16,19 +16,30 @@ class AtomicInstinctWebsite extends StatelessWidget {
     return MaterialApp(
       title: 'Atomic Instinct',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
-        backgroundColor: Colors.black,
-        body: SingleChildScrollView(
-          child: Column(
-            children: const [
-              Header(),
-              Games(),
-              Footer(),
-            ],
-          ),
+        body: Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('images/background.jpeg'),
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+            /*Container(
+              color: const Color(0x99000000),
+            ),*/
+            SingleChildScrollView(
+              child: Column(
+                children: const [
+                  Header(),
+                  Games(),
+                  Footer(),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -81,64 +92,60 @@ class Games extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          GameEntry(
-            nameStyle: const TextStyle(
-              color: Colors.white,
-              fontFamily: 'Chicago',
-              fontWeight: FontWeight.w100,
-              fontSize: 30,
-              height: 1.6,
-              letterSpacing: 1.5,
-            ),
-            descriptionStyle: const TextStyle(
-              color: Colors.white,
-              fontFamily: 'Chicago',
-              fontWeight: FontWeight.w100,
-              fontSize: 18,
-              height: 1.6,
-              letterSpacing: 1.5,
-            ),
-            name: 'Hextrategic',
-            description:
-                'A turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
-            imagePath: 'images/hextrategic.png',
-            androidUrl:
-                'https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com',
-            iosUrl: 'https://apps.apple.com/app/hextrategic/id6444746115',
-            onTap: _onHextrategicWebsite,
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        GameEntry(
+          nameStyle: const TextStyle(
+            color: Colors.white,
+            fontFamily: 'Chicago',
+            fontWeight: FontWeight.w100,
+            fontSize: 30,
+            height: 1.6,
+            letterSpacing: 1.5,
           ),
-          GameEntry(
-            nameStyle: const TextStyle(
-              color: Colors.white,
-              fontFamily: 'Bungee',
-              fontWeight: FontWeight.w900,
-              fontSize: 35,
-              height: 1.32,
-            ),
-            descriptionStyle: const TextStyle(
-              color: Colors.white,
-              fontFamily: 'Bungee',
-              fontWeight: FontWeight.w900,
-              fontSize: 22,
-              height: 1.32,
-            ),
-            name: 'Tension Tunnel',
-            description:
-                'A casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. Easy to learn but hard to master.',
-            imagePath: 'images/tension-tunnel.png',
-            androidUrl:
-                'https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com',
-            iosUrl: 'https://apps.apple.com/app/tension-tunnel/id1608041401',
-            onTap: _onTensionTunnelWebsite,
+          descriptionStyle: const TextStyle(
+            color: Colors.white,
+            fontFamily: 'Chicago',
+            fontWeight: FontWeight.w100,
+            fontSize: 18,
+            height: 1.6,
+            letterSpacing: 1.5,
           ),
-        ],
-      ),
+          name: 'Hextrategic',
+          description:
+              'A turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
+          imagePath: 'images/hextrategic.png',
+          androidUrl: 'https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com',
+          iosUrl: 'https://apps.apple.com/app/hextrategic/id6444746115',
+          onTap: _onHextrategicWebsite,
+        ),
+        GameEntry(
+          nameStyle: const TextStyle(
+            color: Colors.white,
+            fontFamily: 'Bungee',
+            fontWeight: FontWeight.w900,
+            fontSize: 35,
+            height: 1.32,
+          ),
+          descriptionStyle: const TextStyle(
+            color: Colors.white,
+            fontFamily: 'Bungee',
+            fontWeight: FontWeight.w900,
+            fontSize: 22,
+            height: 1.32,
+          ),
+          name: 'Tension Tunnel',
+          description:
+              'A casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. Easy to learn but hard to master.',
+          imagePath: 'images/tension-tunnel.png',
+          androidUrl:
+              'https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com',
+          iosUrl: 'https://apps.apple.com/app/tension-tunnel/id1608041401',
+          onTap: _onTensionTunnelWebsite,
+        ),
+      ],
     );
   }
 
