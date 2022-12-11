@@ -9,7 +9,7 @@ void main() {
 }
 
 class AtomicInstinctWebsite extends StatelessWidget {
-  const AtomicInstinctWebsite({super.key});
+  const AtomicInstinctWebsite();
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AtomicInstinctWebsite extends StatelessWidget {
             Container(
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('images/background.jpeg'),
+                  image: AssetImage('images/background.jpg'),
                   fit: BoxFit.fill,
                 ),
               ),
