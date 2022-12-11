@@ -13,36 +13,57 @@ class AtomicInstinctWebsite extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'ZenDots',
       ),
-      home: const Content(),
+      home: Scaffold(
+        backgroundColor: Colors.black,
+        body: Column(
+          children: const [
+            Header(),
+          ],
+        ),
+      ),
     );
   }
 }
 
-class Content extends StatelessWidget {
-  const Content();
+class Header extends StatelessWidget {
+  const Header();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.black,
-      body: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 200,
-            height: 200,
-            child: Image.asset('images/logo.png'),
+    return Row(
+      mainAxisSize: MainAxisSize.max,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          width: 200,
+          height: 200,
+          child: Image.asset('images/logo.png'),
+        ),
+        const Text(
+          'Atomic\nInstinct',
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 70,
           ),
-          const Text(
-            'Atomic\nInstinct',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 70,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
+    );
+  }
+}
+
+class GameEntry extends StatelessWidget {
+  const GameEntry();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          width: 200,
+          height: 200,
+          child: Image.asset('images/logo.png'),
+        ),
+      ],
     );
   }
 }
