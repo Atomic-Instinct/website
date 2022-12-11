@@ -84,6 +84,7 @@ class Games extends StatelessWidget {
       color: Colors.black,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           GameEntry(
             style: const TextStyle(
@@ -95,7 +96,7 @@ class Games extends StatelessWidget {
             ),
             name: 'Hextrategic',
             description:
-                'Hextrategic is a turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
+                'A turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
             imagePath: 'images/hextrategic.png',
             androidUrl:
                 'https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com',
@@ -107,11 +108,12 @@ class Games extends StatelessWidget {
               color: Colors.white,
               fontFamily: 'Bungee',
               fontWeight: FontWeight.w900,
-              fontSize: 20,
+              fontSize: 22,
+              height: 1.32,
             ),
             name: 'Tension Tunnel',
             description:
-                'Tension Tunnel is a casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. The game has simple mechanics but it requires high dexterity and precise execution from the player.',
+                'A casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. Easy to learn but hard to master.',
             imagePath: 'images/tension-tunnel.png',
             androidUrl:
                 'https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com',
@@ -201,13 +203,18 @@ class DescriptionEntry extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              name.toUpperCase(),
-              style: TextStyle(
-                color: Colors.white,
-                fontFamily: style.fontFamily,
-                fontSize: style.fontSize! * 1.5,
-                fontWeight: style.fontWeight,
+            SizedBox(
+              height: 30,
+              child: FittedBox(
+                child: Text(
+                  name.toUpperCase(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: style.fontFamily,
+                    fontSize: 100,
+                    fontWeight: style.fontWeight,
+                  ),
+                ),
               ),
             ),
             const SizedBox(height: 30),
