@@ -180,8 +180,8 @@ class GameEntry extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.only(
-          left: 100,
-          right: 100,
+          left: 120,
+          right: 120,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
