@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -260,17 +261,31 @@ class StoreButtons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        StoreButton(
-          imagePath: 'images/google_play_badge.png',
-          url: android,
-        ),
-        StoreButton(
-          imagePath: 'images/app_store_badge.png',
-          url: ios,
-        ),
+        if (isAndroid || isDesktop)
+          StoreButton(
+            imagePath: 'images/google_play_badge.png',
+            url: android,
+          ),
+        if (isIOS || isDesktop)
+          StoreButton(
+            imagePath: 'images/app_store_badge.png',
+            url: ios,
+          ),
       ],
     );
   }
+
+  static final bool isAndroid = defaultTargetPlatform == TargetPlatform.android;
+
+  static final bool isIOS = defaultTargetPlatform == TargetPlatform.iOS;
+
+  static final bool isWindows = defaultTargetPlatform == TargetPlatform.windows;
+
+  static final bool isLinux = defaultTargetPlatform == TargetPlatform.linux;
+
+  static final bool isMac = defaultTargetPlatform == TargetPlatform.macOS;
+
+  static final bool isDesktop = !isAndroid && !isIOS && (isWindows || isLinux || isMac);
 }
 
 class StoreButton extends StatelessWidget {
