@@ -33,31 +33,22 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 500,
-            child: Image.asset('images/logo.png'),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: 200,
+          child: Image.asset('images/logo.png'),
+        ),
+        const Text(
+          'Atomic\nInstinct',
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: 'ZenDots',
+            fontSize: 70,
           ),
-          const FittedBox(
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 50),
-              child: Text(
-                'Atomic\nInstinct',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'ZenDots',
-                  fontSize: 200,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -260,8 +251,8 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 1,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -269,10 +260,12 @@ class Footer extends StatelessWidget {
             path: 'images/instagram.png',
             onTap: _onInstagram,
           ),
+          const SizedBox(width: 50),
           SocialMediaEntry(
             path: 'images/twitter.png',
             onTap: _onTwitter,
           ),
+          const SizedBox(width: 50),
           SocialMediaEntry(
             path: 'images/youtube.png',
             onTap: _onYoutube,
@@ -307,28 +300,25 @@ class _SocialMediaEntryState extends State<SocialMediaEntry> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(30),
-      child: GestureDetector(
-        onTap: widget.onTap,
-        child: MouseRegion(
-          cursor: SystemMouseCursors.click,
-          onHover: (event) {
-            setState(() {
-              opacity = 1;
-            });
-          },
-          onExit: (event) {
-            setState(() {
-              opacity = 0.5;
-            });
-          },
-          child: SizedBox(
-            height: 500,
-            child: Opacity(
-              opacity: opacity,
-              child: Image.asset(widget.path),
-            ),
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: MouseRegion(
+        cursor: SystemMouseCursors.click,
+        onHover: (event) {
+          setState(() {
+            opacity = 1;
+          });
+        },
+        onExit: (event) {
+          setState(() {
+            opacity = 0.5;
+          });
+        },
+        child: SizedBox(
+          height: 60,
+          child: Opacity(
+            opacity: opacity,
+            child: Image.asset(widget.path),
           ),
         ),
       ),
