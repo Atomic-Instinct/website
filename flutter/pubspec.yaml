@@ -24,3 +24,9 @@ flutter:
     - family: ZenDots
       fonts:
         - asset: assets/fonts/ZenDots-Regular.ttf
+    - family: Chicago
+      fonts:
+        - asset: assets/fonts/Chicago-Regular.ttf
+    - family: Bungee
+      fonts:
+        - asset: assets/fonts/Bungee-Regular.ttf

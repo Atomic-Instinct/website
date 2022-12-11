@@ -86,6 +86,7 @@ class Games extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           GameEntry(
+            font: 'Chicago',
             name: 'Hextrategic',
             description:
                 'Hextrategic is a turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
@@ -96,6 +97,7 @@ class Games extends StatelessWidget {
             onTap: _onHextrategicWebsite,
           ),
           GameEntry(
+            font: 'Bungee',
             name: 'Tension Tunnel',
             description:
                 'Tension Tunnel is a casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. The game has simple mechanics but it requires high dexterity and precise execution from the player.',
@@ -116,6 +118,7 @@ class Games extends StatelessWidget {
 }
 
 class GameEntry extends StatelessWidget {
+  final String font;
   final String name;
   final String description;
   final String imagePath;
@@ -124,6 +127,7 @@ class GameEntry extends StatelessWidget {
   final VoidCallback onTap;
 
   const GameEntry({
+    required this.font,
     required this.name,
     required this.description,
     required this.imagePath,
@@ -134,38 +138,43 @@ class GameEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        left: 100,
-        right: 100,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          DescriptionEntry(
-            name: name,
-            description: description,
-            imagePath: imagePath,
-            onTap: onTap,
-          ),
-          const SizedBox(height: 30),
-          StoreButtons(
-            android: androidUrl,
-            ios: iosUrl,
-          ),
-        ],
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.only(
+          left: 100,
+          right: 100,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            DescriptionEntry(
+              font: font,
+              name: name,
+              description: description,
+              imagePath: imagePath,
+              onTap: onTap,
+            ),
+            const SizedBox(height: 30),
+            StoreButtons(
+              android: androidUrl,
+              ios: iosUrl,
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
 class DescriptionEntry extends StatelessWidget {
+  final String font;
   final String name;
   final String description;
   final String imagePath;
   final VoidCallback onTap;
 
   const DescriptionEntry({
+    required this.font,
     required this.name,
     required this.description,
     required this.imagePath,
@@ -183,8 +192,9 @@ class DescriptionEntry extends StatelessWidget {
           children: [
             Text(
               name,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.white,
+                fontFamily: font,
                 fontSize: 30,
               ),
             ),
@@ -197,8 +207,9 @@ class DescriptionEntry extends StatelessWidget {
             Text(
               description,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Colors.white,
+                fontFamily: font,
                 fontSize: 20,
               ),
             ),
@@ -253,7 +264,7 @@ class StoreButton extends StatelessWidget {
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: SizedBox(
-          height: 75,
+          height: 60,
           child: Image.asset(imagePath),
         ),
       ),
@@ -270,8 +281,8 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        top: 50,
-        bottom: 30,
+        top: 100,
+        bottom: 50,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
