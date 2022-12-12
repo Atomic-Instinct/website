@@ -385,11 +385,14 @@ class Footer extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 30),
-          const SelectableText(
-            'contact@atomicinstinct.com',
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.white,
+          GestureDetector(
+            onTap: _onEmail,
+            child: const SelectableText(
+              'contact@atomicinstinct.com',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+              ),
             ),
           ),
           const SizedBox(height: 20),
@@ -410,6 +413,12 @@ class Footer extends StatelessWidget {
   void _onYoutube() => launchUrl(Uri.parse('https://www.youtube.com/@atomicinstinct'));
 
   void _onTwitter() => launchUrl(Uri.parse('https://twitter.com/instinct_atomic'));
+
+  void _onEmail() {
+    if (isMobile) {
+      launchUrl(Uri.parse('mailto:contact@atomicinstinct.com'));
+    }
+  }
 }
 
 class SocialMediaEntry extends StatefulWidget {
@@ -426,7 +435,15 @@ class SocialMediaEntry extends StatefulWidget {
 }
 
 class _SocialMediaEntryState extends State<SocialMediaEntry> {
-  double opacity = 0.5;
+  double opacity = 0;
+
+  double get initialOpacity => isMobile ? 1 : 0.65;
+
+  @override
+  void initState() {
+    super.initState();
+    opacity = initialOpacity;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -441,7 +458,7 @@ class _SocialMediaEntryState extends State<SocialMediaEntry> {
         },
         onExit: (event) {
           setState(() {
-            opacity = 0.5;
+            opacity = initialOpacity;
           });
         },
         child: SizedBox(
