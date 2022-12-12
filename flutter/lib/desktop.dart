@@ -8,17 +8,8 @@ class Desktop extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('images/background.jpg'),
-              fit: BoxFit.fill,
-            ),
-          ),
-        ),
-        Container(
-          color: const Color(0x99000000),
-        ),
+        const BackgroundImage('background_desktop'),
+        const BackgroundOverlay(),
         SingleChildScrollView(
           child: Column(
             children: const [

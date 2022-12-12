@@ -2,6 +2,35 @@ import 'package:atomicinstinct/main.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+class BackgroundImage extends StatelessWidget {
+  final String fileName;
+
+  const BackgroundImage(this.fileName);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('images/$fileName.jpg'),
+          fit: BoxFit.fill,
+        ),
+      ),
+    );
+  }
+}
+
+class BackgroundOverlay extends StatelessWidget {
+  const BackgroundOverlay();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: const Color(0x99000000),
+    );
+  }
+}
+
 class Header extends StatelessWidget {
   const Header();
 
@@ -31,12 +60,15 @@ class Header extends StatelessWidget {
         const SizedBox(height: 50),
         const SizedBox(
           width: 600,
-          child: Text(
-            'We are a passionate indie video game studio focused primarily on mobile platforms. We make sure to pour all our hearts in every game we make to deliver the best experience to our players.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 50),
+            child: Text(
+              'We are a passionate indie video game studio focused primarily on mobile platforms. We make sure to pour all our hearts in every game we make to deliver the best experience to our players.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
             ),
           ),
         ),
