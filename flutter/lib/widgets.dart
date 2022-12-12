@@ -83,67 +83,77 @@ class Games extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        GameEntry(
-          nameStyle: const TextStyle(
-            color: Colors.white,
-            fontFamily: 'Chicago',
-            fontWeight: FontWeight.w100,
-            fontSize: 30,
-            height: 1.6,
-            letterSpacing: 1.5,
-          ),
-          descriptionStyle: const TextStyle(
-            color: Colors.white,
-            fontFamily: 'Chicago',
-            fontWeight: FontWeight.w100,
-            fontSize: 18,
-            height: 1.6,
-            letterSpacing: 1.5,
-          ),
-          name: 'Hextrategic',
-          description:
-              'A turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
-          imagePath: 'images/hextrategic.png',
-          androidUrl: 'https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com',
-          iosUrl: 'https://apps.apple.com/app/hextrategic/id6444746115',
-          onTap: _onHextrategicWebsite,
-        ),
-        GameEntry(
-          nameStyle: const TextStyle(
-            color: Colors.white,
-            fontFamily: 'Bungee',
-            fontWeight: FontWeight.w900,
-            fontSize: 35,
-            height: 1.32,
-          ),
-          descriptionStyle: const TextStyle(
-            color: Colors.white,
-            fontFamily: 'Bungee',
-            fontWeight: FontWeight.w900,
-            fontSize: 22,
-            height: 1.32,
-          ),
-          name: 'Tension Tunnel',
-          description:
-              'A casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. Easy to learn but hard to master.',
-          imagePath: 'images/tension-tunnel.png',
-          androidUrl:
-              'https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com',
-          iosUrl: 'https://apps.apple.com/app/tension-tunnel/id1608041401',
-          onTap: _onTensionTunnelWebsite,
-        ),
-      ],
-    );
+    if (isDesktop) {
+      return Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          for (final GameEntry entry in gameEntries) Expanded(child: entry),
+        ],
+      );
+    } else {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: gameEntries,
+      );
+    }
   }
-
-  void _onHextrategicWebsite() => launchUrl(Uri.parse('https://hextrategic.com'));
-
-  void _onTensionTunnelWebsite() => launchUrl(Uri.parse('https://tensiontunnel.com'));
 }
+
+const List<GameEntry> gameEntries = [
+  GameEntry(
+    nameStyle: TextStyle(
+      color: Colors.white,
+      fontFamily: 'Chicago',
+      fontWeight: FontWeight.w100,
+      fontSize: 30,
+      height: 1.6,
+      letterSpacing: 1.5,
+    ),
+    descriptionStyle: TextStyle(
+      color: Colors.white,
+      fontFamily: 'Chicago',
+      fontWeight: FontWeight.w100,
+      fontSize: 18,
+      height: 1.6,
+      letterSpacing: 1.5,
+    ),
+    name: 'Hextrategic',
+    description:
+        'A turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.',
+    imagePath: 'images/hextrategic.png',
+    androidUrl: 'https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com',
+    iosUrl: 'https://apps.apple.com/app/hextrategic/id6444746115',
+    onTap: _onHextrategicWebsite,
+  ),
+  GameEntry(
+    nameStyle: TextStyle(
+      color: Colors.white,
+      fontFamily: 'Bungee',
+      fontWeight: FontWeight.w900,
+      fontSize: 35,
+      height: 1.32,
+    ),
+    descriptionStyle: TextStyle(
+      color: Colors.white,
+      fontFamily: 'Bungee',
+      fontWeight: FontWeight.w900,
+      fontSize: 22,
+      height: 1.32,
+    ),
+    name: 'Tension Tunnel',
+    description:
+        'A casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. Easy to learn but hard to master.',
+    imagePath: 'images/tension-tunnel.png',
+    androidUrl: 'https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com',
+    iosUrl: 'https://apps.apple.com/app/tension-tunnel/id1608041401',
+    onTap: _onTensionTunnelWebsite,
+  ),
+];
+
+void _onHextrategicWebsite() => launchUrl(Uri.parse('https://hextrategic.com'));
+
+void _onTensionTunnelWebsite() => launchUrl(Uri.parse('https://tensiontunnel.com'));
 
 class GameEntry extends StatefulWidget {
   final TextStyle nameStyle;
@@ -183,43 +193,41 @@ class _GameEntryState extends State<GameEntry> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.only(
-          left: 120,
-          right: 120,
-        ),
-        child: MouseRegion(
-          onHover: (event) {
-            setState(() {
-              opacity = 1;
-            });
-          },
-          onExit: (event) {
-            setState(() {
-              opacity = initialOpacity;
-            });
-          },
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              DescriptionEntry(
-                opacity: opacity,
-                nameStyle: widget.nameStyle,
-                descriptionStyle: widget.descriptionStyle,
-                name: widget.name,
-                description: widget.description,
-                imagePath: widget.imagePath,
-                onTap: widget.onTap,
-              ),
-              const SizedBox(height: 30),
-              StoreButtons(
-                android: widget.androidUrl,
-                ios: widget.iosUrl,
-                opacity: opacity,
-              ),
-            ],
-          ),
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 120,
+        right: 120,
+      ),
+      child: MouseRegion(
+        onHover: (event) {
+          setState(() {
+            opacity = 1;
+          });
+        },
+        onExit: (event) {
+          setState(() {
+            opacity = initialOpacity;
+          });
+        },
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            DescriptionEntry(
+              opacity: opacity,
+              nameStyle: widget.nameStyle,
+              descriptionStyle: widget.descriptionStyle,
+              name: widget.name,
+              description: widget.description,
+              imagePath: widget.imagePath,
+              onTap: widget.onTap,
+            ),
+            const SizedBox(height: 30),
+            StoreButtons(
+              android: widget.androidUrl,
+              ios: widget.iosUrl,
+              opacity: opacity,
+            ),
+          ],
         ),
       ),
     );

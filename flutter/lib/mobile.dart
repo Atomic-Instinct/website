@@ -16,6 +16,7 @@ class Mobile extends StatelessWidget {
               FittedBox(
                 child: Header(),
               ),
+              Games(),
               Footer(),
             ],
           ),
