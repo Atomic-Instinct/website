@@ -1,5 +1,6 @@
 import 'package:atomicinstinct/main.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BackgroundImage extends StatelessWidget {
@@ -393,17 +394,33 @@ class Footer extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 30),
-          GestureDetector(
-            onTap: _onEmail,
-            child: const SelectableText(
+          const SizedBox(height: 50),
+          if (isMobile)
+            Link(
+              uri: Uri.parse('contact@atomicinstinct.com'),
+              target: LinkTarget.blank,
+              builder: (context, followLink) => GestureDetector(
+                onTap: () {
+                  followLink?.call();
+                  _onEmail();
+                },
+                child: const Text(
+                  'contact@atomicinstinct.com',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            )
+          else
+            const SelectableText(
               'contact@atomicinstinct.com',
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.white,
               ),
             ),
-          ),
           const SizedBox(height: 20),
           const Text(
             'Copyright © Atomic Instinct 2023',
