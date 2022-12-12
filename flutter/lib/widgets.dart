@@ -398,7 +398,7 @@ class Footer extends StatelessWidget {
           const SizedBox(height: 50),
           if (isMobile)
             Link(
-              uri: Uri.parse('contact@atomicinstinct.com'),
+              uri: Uri.parse('mailto:contact@atomicinstinct.com'),
               target: LinkTarget.blank,
               builder: (context, followLink) => GestureDetector(
                 onTap: () {
