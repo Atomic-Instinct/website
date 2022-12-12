@@ -60,7 +60,7 @@ class Header extends StatelessWidget {
         ),
         const SizedBox(height: 50),
         SizedBox(
-          width: 600,
+          width: 750,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 50),
             child: Text(
@@ -69,6 +69,7 @@ class Header extends StatelessWidget {
               style: TextStyle(
                 color: Colors.white,
                 fontSize: isDesktop ? 20 : 30,
+                fontFamily: 'ZenDots',
               ),
             ),
           ),
