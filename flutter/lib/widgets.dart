@@ -58,16 +58,16 @@ class Header extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 50),
-        const SizedBox(
+        SizedBox(
           width: 600,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 50),
             child: Text(
               'We are a passionate indie video game studio focused primarily on mobile platforms. We make sure to pour all our hearts in every game we make to deliver the best experience to our players.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 20,
+                fontSize: isDesktop ? 20 : 30,
               ),
             ),
           ),
@@ -194,9 +194,9 @@ class _GameEntryState extends State<GameEntry> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 120,
-        right: 120,
+      padding: EdgeInsets.only(
+        left: isDesktop ? 120 : 30,
+        right: isDesktop ? 120 : 30,
       ),
       child: MouseRegion(
         onHover: (event) {
@@ -227,6 +227,7 @@ class _GameEntryState extends State<GameEntry> {
               ios: widget.iosUrl,
               opacity: opacity,
             ),
+            if (isMobile) const SizedBox(height: 100),
           ],
         ),
       ),
@@ -366,8 +367,8 @@ class Footer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        top: 150,
+      padding: EdgeInsets.only(
+        top: isDesktop ? 150 : 50,
         bottom: 50,
       ),
       child: Column(
