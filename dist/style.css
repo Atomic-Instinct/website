@@ -156,8 +156,9 @@ body::before {
 }
 
 .tension-tunnel .game-description {
-    font-size: 18px;
-    line-height: 1.4;
+    font-size: 19px;
+    line-height: 1.2;
+    letter-spacing: 0px;
 }
 
 .store-badges {
