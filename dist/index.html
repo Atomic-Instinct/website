@@ -64,9 +64,68 @@
     }
     </script>
 
+    <link rel="stylesheet" href="./style.css">
+
 </head>
 
 <body>
+
+    <div class="container">
+
+        <!-- Top Section -->
+        <section class="top-section">
+            <div class="header-row">
+                <img src="./img/logo.png" alt="Atomic Instinct Logo" class="logo">
+                <h1 class="title">Atomic<br>Instinct</h1>
+            </div>
+            <p class="studio-description">
+                We are a passionate indie video game studio focused primarily on mobile platforms. We make sure to pour all our hearts in every game we make to deliver the best experience to our players.
+            </p>
+        </section>
+
+        <!-- Bottom Section -->
+        <section class="bottom-section">
+            <div class="games-row">
+
+                <!-- Hextrategic -->
+                <div class="game-column">
+                    <h2 class="game-title">Hextrategic</h2>
+                    <img src="./img/hextrategic.png" alt="Hextrategic" class="game-logo">
+                    <p class="game-description">
+                        A turn-based strategy game where you move units across a board to expand your territory and defeat your enemies. Choose a map. Command your units. Defeat your enemies. Conquer the board.
+                    </p>
+                    <div class="store-badges">
+                        <a href="#" onclick="sendEvent('hextrategic_google_play')">
+                            <img src="./img/google_play_badge.png" alt="Get it on Google Play">
+                        </a>
+                        <a href="#" onclick="sendEvent('hextrategic_app_store')">
+                            <img src="./img/app_store_badge.png" alt="Download on the App Store">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tension Tunnel -->
+                <div class="game-column">
+                    <h2 class="game-title">Tension Tunnel</h2>
+                    <img src="./img/tension_tunnel.png" alt="Tension Tunnel" class="game-logo">
+                    <p class="game-description">
+                        A casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. Easy to learn but hard to master.
+                    </p>
+                    <div class="store-badges">
+                        <a href="#" onclick="sendEvent('tension_tunnel_google_play')">
+                            <img src="./img/google_play_badge.png" alt="Get it on Google Play">
+                        </a>
+                        <a href="#" onclick="sendEvent('tension_tunnel_app_store')">
+                            <img src="./img/app_store_badge.png" alt="Download on the App Store">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
 </body>
 
 </html>
