@@ -69,12 +69,11 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
     margin-bottom: 32px;
 }
 
 .logo {
-    height: 100px;
+    height: 180px;
     width: auto;
 }
 
@@ -85,7 +84,7 @@ body::before {
 }
 
 .studio-description {
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.7;
     max-width: 600px;
     margin: 0 auto;
@@ -182,7 +181,7 @@ body::before {
     }
 
     .logo {
-        height: 70px;
+        height: 130px;
     }
 
     .title {
@@ -190,7 +189,7 @@ body::before {
     }
 
     .studio-description {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .games-row {
