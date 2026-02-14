@@ -118,7 +118,7 @@ body::before {
 }
 
 .game-logo {
-    width: 220px;
+    width: 160px;
     height: auto;
     margin-bottom: 24px;
 }
@@ -178,7 +178,7 @@ body::before {
     }
 
     .game-logo {
-        width: 180px;
+        width: 140px;
     }
 
     .games-row {
@@ -219,7 +219,7 @@ body::before {
     }
 
     .game-logo {
-        width: 180px;
+        width: 140px;
     }
 
     .game-description {
