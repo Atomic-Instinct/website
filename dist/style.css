@@ -62,14 +62,14 @@ body::before {
 /* ── Top Section ── */
 .top-section {
     text-align: center;
-    padding: 60px 0 40px;
+    padding: 10px 0 40px;
 }
 
 .header-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
 }
 
 .logo {
