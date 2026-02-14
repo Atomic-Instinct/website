@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0CRBJQ2019"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-0CRBJQ2019');
+
+        function sendEvent(name) {
+            gtag('event', name);
+        }
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Tension Tunnel — a casual, minimalist and challenging tunnel runner. Avoid obstacles, reach portals, conquer 30 levels. Available on iOS and Android.">
+    <meta name="author" content="Atomic Instinct">
+
+    <title>Tension Tunnel</title>
+    <link rel="icon" type="image/png" href="./img/favicon.png">
+    <link rel="apple-touch-icon" href="./img/favicon.png">
+    <link rel="canonical" href="https://tensiontunnel.com/">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Tension Tunnel">
+    <meta property="og:title" content="Tension Tunnel — Casual Neon Tunnel Runner Game">
+    <meta property="og:description" content="A casual, minimalist and challenging tunnel runner. Avoid obstacles, reach portals, conquer 30 levels. Available on iOS and Android.">
+    <meta property="og:url" content="https://tensiontunnel.com/">
+    <meta property="og:image" content="https://tensiontunnel.com/img/favicon.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tension Tunnel — Casual Neon Tunnel Runner Game">
+    <meta name="twitter:description" content="A casual, minimalist and challenging tunnel runner. Avoid obstacles, reach portals, conquer 30 levels. Available on iOS and Android.">
+    <meta name="twitter:image" content="https://tensiontunnel.com/img/favicon.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Tension Tunnel",
+        "operatingSystem": "Android, iOS",
+        "applicationCategory": "GameApplication",
+        "description": "A casual, minimalist and challenging tunnel runner. Avoid obstacles, reach portals, conquer 30 levels.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "url": "https://tensiontunnel.com",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Atomic Instinct",
+            "email": "contact@atomicinstinct.com"
+        }
+    }
+    </script>
+
+    <!-- Preconnect hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Custom fonts -->
+    <link href="./css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee&display=swap" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="./css/animate.css" rel="stylesheet">
+    <link href="./css/freelancer.min.css" rel="stylesheet">
+    <link href="./css/custom.css" rel="stylesheet">
+
+</head>
+
+<body class="sliding-background">
+
+    <!-- Masthead -->
+    <section class="masthead text-white text-center">
+        <div class="container d-flex align-items-center flex-column">
+
+            <!-- Logo -->
+            <img class="masthead-avatar animated fadeIn slow mb-3" src="./img/tension_tunnel.svg"
+                alt="Tension Tunnel">
+
+            <!-- Heading -->
+            <h1 class="masthead-heading animated fadeIn slow text-uppercase mb-3" style="margin-top:1em; font-family: Bungee Hairline;">Tension Tunnel</h1>
+
+            <!-- Download Buttons -->
+            <div class="text-center mt-4">
+                <div class="download-button" id="button-android" style="display: none;">
+                    <a href="https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://tensiontunnel.com"
+                        target="_blank" onclick="sendEvent('download_android')">
+                        <img height="70" src="./img/google_play_badge.png" alt="Get it on Google Play">
+                    </a>
+                </div>
+                <div class="download-button" id="button-ios" style="display: none;">
+                    <a href="https://apps.apple.com/app/tension-tunnel/id1608041401" target="_blank"
+                        onclick="sendEvent('download_ios')">
+                        <img height="70" src="./img/app_store_badge.png" alt="Get it on the App Store">
+                    </a>
+                </div>
+            </div>
+
+            <!-- Play Demo Button (Desktop Only) -->
+            <div class="text-center mt-4" id="button-play" style="display: none;">
+                <div class="download-button">
+                    <a href="https://tensiontunnel.com/play" target="_blank" onclick="sendEvent('play_demo')">
+                        <img class="animated infinite pulse" height="90" src="./img/play_demo.png"
+                            alt="Play the demo">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Trailer Section -->
+    <section id="trailer">
+        <div class="container">
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="video-responsive animated fadeInUp">
+                        <iframe src="https://www.youtube.com/embed/JeBXhxe0Mks" title="Tension Tunnel - Trailer"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Gameplay Section -->
+    <section class="page-section" id="gameplay">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="gameplay-card animated fadeInUp">
+                        <img class="img-fluid" src="./img/gameplay1.gif" alt="Dodging neon obstacles in a tunnel" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gameplay-card animated fadeInUp delay-1s">
+                        <img class="img-fluid" src="./img/gameplay2.gif" alt="Navigating through moving barriers" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="gameplay-card animated fadeInUp delay-2s">
+                        <img class="img-fluid" src="./img/gameplay3.gif" alt="Approaching a glowing portal" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="text-white" id="about">
+        <div class="container">
+
+            <h2 class="section-heading text-center text-uppercase animated fadeIn">About</h2>
+            <div class="neon-divider animated fadeIn"></div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Tension Tunnel is a casual, minimalist and challenging game that will put your focus, reflexes, and nerves to
+                        the test.</h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        The game has simple mechanics but it requires high dexterity and precise execution from the player.
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        The goal is simple: avoid all obstacles and reach the portal to go to the next level.</h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Download it now and start feeling the tension. Be careful, it's highly addictive!</h2>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="page-section text-white" id="features">
+        <div class="container">
+
+            <h2 class="section-heading text-center text-uppercase animated fadeIn">Features</h2>
+            <div class="neon-divider animated fadeIn"></div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Easy to learn. Hard to master<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        30 challenging levels<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        More than 100 unique enemies<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Minimalist look with neon style<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Unlock new ship avatars<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        3 different power ups to use<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Simple and intuitive controls with one touch gameplay<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Amazing atmospheric music<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Many hours of fun<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Play offline<br />
+                    </h2>
+                    <h2 style="font-family: Bungee Hairline; font-size: 1.25em;">
+                        Free to play<br />
+                    </h2>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <a href="mailto:contact@atomicinstinct.com">
+                <span style="font-family: Bungee Hairline; font-size: 1em;">contact@atomicinstinct.com</span>
+            </a>
+            <br />
+            <br />
+            <h2 style="color: white; font-family: Bungee Hairline; font-size: 1em;">Copyright &copy; Atomic Instinct <span id="copyright-year"></span></h2>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="./js/jquery.easing.min.js"></script>
+
+    <script>
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+
+        var isAndroid = /android/i.test(navigator.userAgent);
+        var isiOS = [
+            'iPad Simulator',
+            'iPhone Simulator',
+            'iPod Simulator',
+            'iPad',
+            'iPhone',
+            'iPod'
+        ].includes(navigator.platform);
+
+        if (isAndroid) {
+            document.getElementById('button-android').style.display = 'inline';
+        }
+
+        if (isiOS) {
+            document.getElementById('button-ios').style.display = 'inline';
+        }
+
+        if (!isAndroid && !isiOS) {
+            document.getElementById('button-ios').style.display = 'inline';
+            document.getElementById('button-android').style.display = 'inline';
+            document.getElementById('button-play').style.display = 'inline';
+        }
+    </script>
+
+</body>
+
+</html>
