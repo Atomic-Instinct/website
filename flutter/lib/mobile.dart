@@ -6,13 +6,13 @@ class Mobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       children: [
-        const BackgroundImage('background_mobile'),
-        const BackgroundOverlay(),
+        BackgroundImage('background_mobile'),
+        BackgroundOverlay(),
         SingleChildScrollView(
           child: Column(
-            children: const [
+            children: [
               FittedBox(
                 child: Header(),
               ),

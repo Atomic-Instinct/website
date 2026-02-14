@@ -6,13 +6,13 @@ class Desktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       children: [
-        const BackgroundImage('background_desktop'),
-        const BackgroundOverlay(),
+        BackgroundImage('background_desktop'),
+        BackgroundOverlay(),
         SingleChildScrollView(
           child: Column(
-            children: const [
+            children: [
               Header(),
               Games(),
               Footer(),

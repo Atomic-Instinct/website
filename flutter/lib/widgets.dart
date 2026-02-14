@@ -94,7 +94,7 @@ class Games extends StatelessWidget {
         ],
       );
     } else {
-      return Column(
+      return const Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: gameEntries,
       );
