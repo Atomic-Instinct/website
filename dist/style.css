@@ -110,8 +110,8 @@ body::before {
 
 .game-title {
     font-family: 'Chicago', sans-serif;
-    font-size: 28px;
-    font-weight: normal;
+    font-size: 38px;
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 24px;
@@ -125,7 +125,8 @@ body::before {
 
 .game-description {
     font-family: 'Chicago', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: bold;
     line-height: 1.7;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -223,7 +224,7 @@ body::before {
     }
 
     .game-description {
-        font-size: 10px;
+        font-size: 14px;
     }
 
     .store-badges a img {
