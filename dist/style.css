@@ -134,9 +134,19 @@ body::before {
     margin-bottom: 24px;
 }
 
+.hextrategic .game-description {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
 .tension-tunnel .game-title,
 .tension-tunnel .game-description {
     font-family: 'Bungee', sans-serif;
+}
+
+.tension-tunnel .game-description {
+    font-size: 18px;
+    line-height: 1.4;
 }
 
 .store-badges {
