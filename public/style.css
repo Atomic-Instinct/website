@@ -1,6 +1,7 @@
 @font-face {
     font-family: 'ZenDots';
-    src: url('./fonts/ZenDots-Regular.ttf') format('truetype');
+    src: url('./fonts/ZenDots-Regular.woff2') format('woff2'),
+         url('./fonts/ZenDots-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -8,7 +9,8 @@
 
 @font-face {
     font-family: 'Chicago';
-    src: url('./fonts/Chicago-Regular.ttf') format('truetype');
+    src: url('./fonts/Chicago-Regular.woff2') format('woff2'),
+         url('./fonts/Chicago-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -16,7 +18,8 @@
 
 @font-face {
     font-family: 'Bungee';
-    src: url('./fonts/Bungee-Regular.ttf') format('truetype');
+    src: url('./fonts/Bungee-Regular.woff2') format('woff2'),
+         url('./fonts/Bungee-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -114,8 +117,26 @@ body::before {
     cursor: pointer;
 }
 
-.game-column:hover {
+.game-column:hover,
+.game-column:focus-visible {
     opacity: 1;
+}
+
+.game-column:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 8px;
+    border-radius: 4px;
+}
+
+.store-badges a:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+.footer a:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 4px;
 }
 
 .game-title {

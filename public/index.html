@@ -3,6 +3,8 @@
 
 <head>
 
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-04MFYMB0HG"></script>
     <script>
@@ -19,7 +21,13 @@
             document.querySelectorAll('.game-column[data-href]').forEach(function (col) {
                 col.addEventListener('click', function (e) {
                     if (e.target.closest('.store-badges a')) return;
-                    window.open(col.dataset.href, '_blank');
+                    window.open(col.dataset.href, '_blank', 'noopener,noreferrer');
+                });
+                col.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.open(col.dataset.href, '_blank', 'noopener,noreferrer');
+                    }
                 });
             });
         });
@@ -33,6 +41,7 @@
     <title>Atomic Instinct</title>
     <link rel="icon" type="image/png" href="./img/favicon.png">
     <link rel="apple-touch-icon" href="./img/favicon.png">
+    <link rel="manifest" href="./manifest.json">
     <link rel="canonical" href="https://atomicinstinct.com/">
     <meta name="theme-color" content="#000000">
 
@@ -54,21 +63,51 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
+        "@type": "Organization",
         "name": "Atomic Instinct",
+        "url": "https://atomicinstinct.com",
+        "email": "contact@atomicinstinct.com",
+        "description": "Passionate indie video game studio dedicated to crafting unforgettable experiences.",
+        "logo": "https://atomicinstinct.com/img/favicon.png"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Hextrategic",
         "operatingSystem": "Android, iOS",
         "applicationCategory": "GameApplication",
-        "description": "A casual, minimalist and challenging tunnel runner. Avoid obstacles, reach portals, conquer 30 levels.",
+        "description": "A turn-based strategy game where you command units and expand territory to defeat your enemies and conquer the board.",
+        "url": "https://hextrategic.com",
         "offers": {
             "@type": "Offer",
             "price": "0",
             "priceCurrency": "USD"
         },
-        "url": "https://atomicinstinct.com",
         "publisher": {
             "@type": "Organization",
-            "name": "Atomic Instinct",
-            "email": "contact@atomicinstinct.com"
+            "name": "Atomic Instinct"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Tension Tunnel",
+        "operatingSystem": "Android, iOS",
+        "applicationCategory": "GameApplication",
+        "description": "A casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test.",
+        "url": "https://tensiontunnel.com",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Atomic Instinct"
         }
     }
     </script>
@@ -97,34 +136,34 @@
             <div class="games-row">
 
                 <!-- Hextrategic -->
-                <div class="game-column hextrategic" data-href="https://hextrategic.com">
+                <div class="game-column hextrategic" data-href="https://hextrategic.com" tabindex="0" role="link" aria-label="Hextrategic - Visit game website">
                     <h2 class="game-title">Hextrategic</h2>
                     <img src="./img/hextrategic.png" alt="Hextrategic" class="game-logo">
                     <p class="game-description">
                         A turn-based strategy game where you command units and expand territory to defeat your enemies and conquer the board.
                     </p>
                     <div class="store-badges">
-                        <a href="https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com" target="_blank" onclick="sendEvent('hextrategic_google_play')">
+                        <a href="https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com" target="_blank" rel="noopener noreferrer" onclick="sendEvent('hextrategic_google_play')">
                             <img src="./img/google_play_badge.png" alt="Get it on Google Play">
                         </a>
-                        <a href="https://apps.apple.com/us/app/hextrategic/id6444746115" target="_blank" onclick="sendEvent('hextrategic_app_store')">
+                        <a href="https://apps.apple.com/us/app/hextrategic/id6444746115" target="_blank" rel="noopener noreferrer" onclick="sendEvent('hextrategic_app_store')">
                             <img src="./img/app_store_badge.png" alt="Download on the App Store">
                         </a>
                     </div>
                 </div>
 
                 <!-- Tension Tunnel -->
-                <div class="game-column tension-tunnel" data-href="https://tensiontunnel.com">
+                <div class="game-column tension-tunnel" data-href="https://tensiontunnel.com" tabindex="0" role="link" aria-label="Tension Tunnel - Visit game website">
                     <h2 class="game-title">Tension Tunnel</h2>
                     <img src="./img/tension_tunnel.png" alt="Tension Tunnel" class="game-logo">
                     <p class="game-description">
                         A casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. Easy to learn but hard to master.
                     </p>
                     <div class="store-badges">
-                        <a href="https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com" target="_blank" onclick="sendEvent('tension_tunnel_google_play')">
+                        <a href="https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com" target="_blank" rel="noopener noreferrer" onclick="sendEvent('tension_tunnel_google_play')">
                             <img src="./img/google_play_badge.png" alt="Get it on Google Play">
                         </a>
-                        <a href="https://apps.apple.com/us/app/tension-tunnel/id1608041401" target="_blank" onclick="sendEvent('tension_tunnel_app_store')">
+                        <a href="https://apps.apple.com/us/app/tension-tunnel/id1608041401" target="_blank" rel="noopener noreferrer" onclick="sendEvent('tension_tunnel_app_store')">
                             <img src="./img/app_store_badge.png" alt="Download on the App Store">
                         </a>
                     </div>
@@ -136,7 +175,8 @@
         <!-- Footer Section -->
         <footer class="footer">
             <a href="mailto:contact@atomicinstinct.com">contact@atomicinstinct.com</a>
-            <p>Copyright &copy; Atomic Instinct <script>document.write(new Date().getFullYear())</script></p>
+            <p>Copyright &copy; Atomic Instinct <span id="year"></span></p>
+            <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
         </footer>
 
     </div>
