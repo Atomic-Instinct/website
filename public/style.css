@@ -240,6 +240,10 @@ body::before {
     .games-row {
         gap: 24px;
     }
+
+    .game-column {
+        opacity: 1;
+    }
 }
 
 /* ── Responsive: Mobile ── */
