@@ -88,6 +88,7 @@ body::before {
     line-height: 1.7;
     max-width: 600px;
     margin: 0 auto;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 /* ── Bottom Section ── */
