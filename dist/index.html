@@ -14,6 +14,15 @@
         function sendEvent(name) {
             gtag('event', name);
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('.game-column[data-href]').forEach(function (col) {
+                col.addEventListener('click', function (e) {
+                    if (e.target.closest('.store-badges a')) return;
+                    window.open(col.dataset.href, '_blank');
+                });
+            });
+        });
     </script>
 
     <meta charset="utf-8">
@@ -88,34 +97,34 @@
             <div class="games-row">
 
                 <!-- Hextrategic -->
-                <div class="game-column hextrategic">
+                <div class="game-column hextrategic" data-href="https://hextrategic.com">
                     <h2 class="game-title">Hextrategic</h2>
                     <img src="./img/hextrategic.png" alt="Hextrategic" class="game-logo">
                     <p class="game-description">
                         A turn-based strategy game where you command units and expand territory to defeat your enemies and conquer the board.
                     </p>
                     <div class="store-badges">
-                        <a href="https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com" onclick="sendEvent('hextrategic_google_play')">
+                        <a href="https://play.google.com/store/apps/details?id=com.atomicinstinct.hextrategic&referrer=website&url=https://atomicinstinct.com" target="_blank" onclick="sendEvent('hextrategic_google_play')">
                             <img src="./img/google_play_badge.png" alt="Get it on Google Play">
                         </a>
-                        <a href="https://apps.apple.com/us/app/hextrategic/id6444746115" onclick="sendEvent('hextrategic_app_store')">
+                        <a href="https://apps.apple.com/us/app/hextrategic/id6444746115" target="_blank" onclick="sendEvent('hextrategic_app_store')">
                             <img src="./img/app_store_badge.png" alt="Download on the App Store">
                         </a>
                     </div>
                 </div>
 
                 <!-- Tension Tunnel -->
-                <div class="game-column tension-tunnel">
+                <div class="game-column tension-tunnel" data-href="https://tensiontunnel.com">
                     <h2 class="game-title">Tension Tunnel</h2>
                     <img src="./img/tension_tunnel.png" alt="Tension Tunnel" class="game-logo">
                     <p class="game-description">
                         A casual, minimalist and challenging game that will put your focus, reflexes, and nerves to the test. Easy to learn but hard to master.
                     </p>
                     <div class="store-badges">
-                        <a href="https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com" onclick="sendEvent('tension_tunnel_google_play')">
+                        <a href="https://play.google.com/store/apps/details?id=com.atomicinstinct.tensiontunnel&referrer=website&url=https://atomicinstinct.com" target="_blank" onclick="sendEvent('tension_tunnel_google_play')">
                             <img src="./img/google_play_badge.png" alt="Get it on Google Play">
                         </a>
-                        <a href="https://apps.apple.com/us/app/tension-tunnel/id1608041401" onclick="sendEvent('tension_tunnel_app_store')">
+                        <a href="https://apps.apple.com/us/app/tension-tunnel/id1608041401" target="_blank" onclick="sendEvent('tension_tunnel_app_store')">
                             <img src="./img/app_store_badge.png" alt="Download on the App Store">
                         </a>
                     </div>
